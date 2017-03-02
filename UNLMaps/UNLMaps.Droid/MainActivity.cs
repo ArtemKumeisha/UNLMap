@@ -6,6 +6,11 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Android.Util;
+using Java.Security;
+using Microsoft.Practices.Unity;
+using Prism.Unity;
+using Signature = Android.Content.PM.Signature;
 
 namespace UNLMaps.Droid
 {
@@ -20,7 +25,18 @@ namespace UNLMaps.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+
+            Xamarin.FormsGoogleMaps.Init(this, bundle); // initialize for Xamarin.Forms.GoogleMaps
+
             LoadApplication(new App());
+        }
+    }
+
+    public class AndroidInitializer : IPlatformInitializer
+    {
+        public void RegisterTypes(IUnityContainer container)
+        {
+
         }
     }
 }
