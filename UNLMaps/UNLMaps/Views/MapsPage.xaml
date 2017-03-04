@@ -4,17 +4,15 @@
              xmlns:maps="clr-namespace:Xamarin.Forms.GoogleMaps;assembly=Xamarin.Forms.GoogleMaps"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="UNLMaps.Views.MapsPage" Title="Maps">
+             x:Class="UNLMaps.Views.MapsPage" Title="UNLMaps">
   <ContentPage.Content>
-    <StackLayout
-        HorizontalOptions="Fill"
-        VerticalOptions="Fill"
-        Orientation="Vertical">
-        <Entry
-                   x:Name="pinDisplay"
-                   VerticalOptions="Center"
-                   Text="$25" />
-        <maps:Map x:Name="map" MapType="Street"/>
-    </StackLayout>
+    <AbsoluteLayout>
+      <maps:Map x:Name="map" AbsoluteLayout.LayoutBounds="0, 0,1, 1" AbsoluteLayout.LayoutFlags="All" MapType="Street"/>
+      <Image x:Name="FabImg" AbsoluteLayout.LayoutBounds=".90, .95, 60, 60" AbsoluteLayout.LayoutFlags="PositionProportional" Source="fab.png">
+        <Image.GestureRecognizers>
+          <TapGestureRecognizer Command="{Binding NavigateToCommand}"/>
+        </Image.GestureRecognizers>
+      </Image>
+    </AbsoluteLayout>
   </ContentPage.Content>
 </ContentPage>

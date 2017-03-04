@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="UNLMaps.Droid" android:versionCode="1" android:versionName="1.0" android:installLocation="preferExternal">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="UNLMaps.Droid" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="15" />
   <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
   <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -13,11 +13,8 @@
 <!--    <meta-data-->
 <!--       android:name="com.google.android.maps.v2.API_KEY"-->
 <!--       android:value="AIzaSyAvlfLtnE72GeNebaHru7fzkpylxfImdN0"/>-->
-<!--    <meta-data-->
-<!--      android:name="com.google.android.geo.API_KEY"-->
-<!--      android:value="AIzaSyAvlfLtnE72GeNebaHru7fzkpylxfImdN0"/>-->
     <meta-data
-        android:name="com.google.android.maps.v2.API_KEY"
-        android:value="AIzaSyAmsgbfZLx1Kubczv_2XQaKaMNfanOOYVw"/>
+        android:name="com.google.android.geo.API_KEY"
+        android:value="AIzaSyCwiaCPGDasuUA0qUSaMcHqNLXkeyVXFgY"/>
   </application>
 </manifest>

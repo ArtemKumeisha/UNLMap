@@ -47,6 +47,7 @@ namespace UNLMaps
         {
             Container.RegisterTypeForNavigation<NavigationPage>();
             Container.RegisterTypeForNavigation<MapsPage, MapsPageViewModel>();
+            Container.RegisterTypeForNavigation<CreatePinPage, CreatePinPageViewModel>();
         }
     }
 }

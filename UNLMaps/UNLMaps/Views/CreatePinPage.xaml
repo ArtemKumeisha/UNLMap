@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="UNLMaps.Views.CreatePinPage" Title="Create Pin">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Text="Add" Command="{Binding AddPinCommand}" Order="Primary"/>
+  </ContentPage.ToolbarItems>
+ <ContentPage.Content>
+   <TableView Intent="Data">
+      <TableView.Root>
+        <TableSection Title="Place Name" >
+            <EntryCell Text="{Binding Name}" Placeholder="Place name" />
+         </TableSection>
+        <TableSection Title="Address">
+          <EntryCell  Text="{Binding Address}" Placeholder="Address"/>
+        </TableSection>
+        <TableSection Title="Description">
+           <EntryCell Text="{Binding Description}"  Placeholder="Description"/>
+        </TableSection>
+        <TableSection Title="Rating">
+            <EntryCell Keyboard="Numeric" Text="{Binding Raiting}" />
+        </TableSection>
+      </TableView.Root>
+    </TableView>
+  </ContentPage.Content>
+</ContentPage>

@@ -15,8 +15,7 @@ namespace UNLMaps.Views
         public MapsPage()
         {
             InitializeComponent();
-//            Position position = new Position(23.68, -46.87);
-//            map.MoveToRegion(MapSpan.FromCenterAndRadius(position, Distance.FromKilometers(2)));
+           // map.HasZoomEnabled = true;
         }
 
         protected override async void OnAppearing()
@@ -45,14 +44,10 @@ namespace UNLMaps.Views
                 Label = "Tokyo SKYTREE",
                 Address = "Sumida-ku, Tokyo, Japan",
                 Position = position,
-                Icon = BitmapDescriptorFactory.FromView(new BindingPinView(pinDisplay.Text))
+                Icon = BitmapDescriptorFactory.FromView(new BindingPinView("A"))
             };
             map.Pins.Add(pin);
-            pinDisplay.TextChanged += (sender, e) =>
-            {
-                pin.Icon = BitmapDescriptorFactory.FromView(new BindingPinView(e.NewTextValue));
-            };
-        }
+         }
 
     }
 }
