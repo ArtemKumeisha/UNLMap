@@ -5,12 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using Prism.Commands;
 using Prism.Navigation;
+using Realms;
+using UNLMaps.Models;
 
 namespace UNLMaps.ViewModels
 {
     public class CreatePinPageViewModel : ViewModelBase
     {
         private readonly INavigationService _navigationService;
+        private readonly Realm _realm;
+
         private string name;
         private string address;
         private string description;
@@ -54,6 +58,8 @@ namespace UNLMaps.ViewModels
         {
             _navigationService = navigationService;
 
+            _realm = Realm.GetInstance("UNLRealm");
+
             AddPinCommand = new DelegateCommand(AddPin);
         }
 
@@ -66,7 +72,21 @@ namespace UNLMaps.ViewModels
             var a = Address;
             var d = Description;
             var r = Raiting;
-            await _navigationService.GoBackAsync();
+
+            var newMapPin = new MapPin
+            {
+                Address = Address,
+                Name = Name,
+                Description = Description,
+                Raiting = 5
+            };
+
+            _realm.Write(()=> _realm.Add(newMapPin));
+
+            NavigationParameters parameters = new NavigationParameters();
+            parameters.Add("AddedMapPin", newMapPin);
+
+            await _navigationService.GoBackAsync(parameters);
         }
     }
 }
