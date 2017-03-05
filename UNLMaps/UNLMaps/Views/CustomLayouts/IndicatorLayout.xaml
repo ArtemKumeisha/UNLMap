@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UNLMaps.Views.CustomLayouts.IndicatorLayout" x:Name="Indicator" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+  <ActivityIndicator Color="#D84315" x:Name="PopulateIndicator" IsRunning="True" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"/>
+</StackLayout>

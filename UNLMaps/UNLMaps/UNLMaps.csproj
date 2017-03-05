@@ -48,6 +48,9 @@
     <Compile Include="Views\CustomLayouts\BindingPinView.xaml.cs">
       <DependentUpon>BindingPinView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CustomLayouts\IndicatorLayout.xaml.cs">
+      <DependentUpon>IndicatorLayout.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MapsPage.xaml.cs">
       <DependentUpon>MapsPage.xaml</DependentUpon>
     </Compile>
@@ -116,7 +119,12 @@
       <HintPath>..\..\packages\Xamarin.GooglePlayServices.Maps.29.0.0.1\lib\MonoAndroid41\Xamarin.GooglePlayServices.Maps.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Views\CustomLayouts\IndicatorLayout.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\MapsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
