@@ -180,6 +180,7 @@
   <ItemGroup>
     <Compile Include="MainActivity.cs" />
     <Compile Include="MyApp.cs" />
+    <Compile Include="NativeViews\RaitingSpinner.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -220,6 +221,12 @@
     <AndroidResource Include="Resources\drawable-xhdpi\fab.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\fab.png" />
     <AndroidResource Include="Resources\values\colors.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\logo.png" />
+    <AndroidResource Include="Resources\drawable\logo.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\logo.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\logo.png" />
+    <AndroidResource Include="Resources\drawable\splash.jpg" />
+    <AndroidResource Include="Resources\drawable\logoIron.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

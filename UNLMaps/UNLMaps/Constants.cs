@@ -9,6 +9,6 @@ namespace UNLMaps
     public static class Constants
     {
         // https://developers.google.com/maps/documentation/android-api/signup
-        public const string GOOGLE_MAPS_ANDROID_API_KEY = "AIzaSyAmsgbfZLx1Kubczv_2XQaKaMNfanOOYVw";
+        public const string GOOGLE_MAPS_ANDROID_API_KEY = "AIzaSyAbiHwqMrkqhBvnMIFAOpcoD3ligxkr88g";
     }
 }

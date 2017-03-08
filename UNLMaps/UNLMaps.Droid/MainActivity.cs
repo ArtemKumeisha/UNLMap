@@ -15,7 +15,7 @@ using Signature = Android.Content.PM.Signature;
 
 namespace UNLMaps.Droid
 {
-    [Activity(Label = "UNLMaps", Icon = "@drawable/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation, WindowSoftInputMode = SoftInput.AdjustPan)]
+    [Activity(Label = "UNLMaps", Icon = "@drawable/logoIron", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle bundle)
@@ -27,19 +27,9 @@ namespace UNLMaps.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
-//            // get the accent color from your theme
-//            var themeAccentColor = new TypedValue();
-//            this.Theme.ResolveAttribute(Resource.Attribute.colorAccent, themeAccentColor, true);
-//            var droidAccentColor = new Android.Graphics.Color(themeAccentColor.Data);
-//
-//            // set Xamarin Color.Accent to match the theme's accent color
-//            var accentColorProp = typeof(Xamarin.Forms.Color).GetProperty(nameof(Xamarin.Forms.Color.Accent), System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Static);
-//            var xamarinAccentColor = new Xamarin.Forms.Color(droidAccentColor.R / 255.0, droidAccentColor.G / 255.0, droidAccentColor.B / 255.0, droidAccentColor.A / 255.0);
-//            accentColorProp.SetValue(null, xamarinAccentColor, System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static, null, null, System.Globalization.CultureInfo.CurrentCulture);
-
-            // Window.SetSoftInputMode(SoftInput.AdjustResize);
-
-            AndroidBug5497WorkaroundForXamarinAndroid.assistActivity(this);
+            Window.SetSoftInputMode(SoftInput.AdjustResize);
+            
+           // AndroidBug5497WorkaroundForXamarinAndroid.assistActivity(this);
             
             Xamarin.FormsGoogleMaps.Init(this, bundle); // initialize for Xamarin.Forms.GoogleMaps
 

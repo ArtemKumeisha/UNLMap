@@ -18,9 +18,7 @@ namespace UNLMaps
 
         public App(IPlatformInitializer initializer = null) : base(initializer)
         {
-            // NavigationPage.SetHasNavigationBar(this, false);
-            //  MainPage = new NavigationPage(new MainPage());
-
+           
         }
 
         protected override void OnStart()

@@ -3,26 +3,46 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="UNLMaps.Views.CreatePinPage" Title="Create Pin">
+             xmlns:formsandroid="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.Platform.Android;targetPlatform=Android"
+             xmlns:androidNative="clr-namespace:UNLMaps.Droid.NativeViews;assembly=UNLMaps.Droid;targetPlatform=Android"
+             x:Class="UNLMaps.Views.CreatePinPage" Title="Create Pin" BackgroundColor="White">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="LabelStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="Color.Black"/>
+      </Style>
+       <Style x:Key="EntryStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="Color.Black"/>
+        <Setter Property="Entry.PlaceholderColor" Value="Color.Gray"/>
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
   <ContentPage.ToolbarItems>
     <ToolbarItem Text="Add" Command="{Binding AddPinCommand}" Order="Primary"/>
   </ContentPage.ToolbarItems>
  <ContentPage.Content>
-   <TableView Intent="Data">
-      <TableView.Root>
-        <TableSection Title="Place Name" >
-            <EntryCell Text="{Binding Name}" Placeholder="Place name" />
-         </TableSection>
-        <TableSection Title="Address">
-          <EntryCell  Text="{Binding Address}" Placeholder="Address"/>
-        </TableSection>
-        <TableSection Title="Description">
-           <EntryCell Text="{Binding Description}"  Placeholder="Description"/>
-        </TableSection>
-        <TableSection Title="Rating">
-            <EntryCell Keyboard="Numeric" Text="{Binding Raiting}" />
-        </TableSection>
-      </TableView.Root>
-    </TableView>
+   <Grid Padding="10, 5">
+     <Grid.ColumnDefinitions>
+       <ColumnDefinition Width="*"/>
+       <ColumnDefinition Width="3*"/>
+     </Grid.ColumnDefinitions>
+     <Grid.RowDefinitions>
+       <RowDefinition Height="*"/>
+       <RowDefinition Height="*"/>
+       <RowDefinition Height="*"/>
+       <RowDefinition Height="*"/>
+       <RowDefinition Height="*"/>
+       <RowDefinition Height="*"/>
+       <RowDefinition Height="*"/>
+     </Grid.RowDefinitions>
+     <Label Grid.Column="0" Grid.Row="0" Text="Place Name:" Style="{DynamicResource LabelStyle}" HorizontalOptions="Start" VerticalOptions="Center"/>
+     <Entry Grid.Row="0" Grid.Column="1" Style="{DynamicResource EntryStyle}" Placeholder="Place name" Text="{Binding Name}" VerticalOptions="Center"/>
+     <Label Grid.Column="0" Grid.Row="1" Text="Google Address:" Style="{DynamicResource LabelStyle}" HorizontalOptions="Start" VerticalOptions="Center"/>
+     <Entry Grid.Row="1" Grid.Column="1" Style="{DynamicResource EntryStyle}" Placeholder="Google Address" Text="{Binding Address}" VerticalOptions="Center"/>
+     <Label Grid.Column="0" Grid.Row="2" Text="Description:" Style="{DynamicResource LabelStyle}" HorizontalOptions="Start" VerticalOptions="Center"/>
+     <Entry Grid.Row="2" Grid.Column="1" Style="{DynamicResource EntryStyle}" Placeholder="Description" Text="{Binding Description}" VerticalOptions="Center"/>
+     <Label Grid.Column="0" Grid.Row="3" Text="Raiting:" Style="{DynamicResource LabelStyle}" HorizontalOptions="Start" VerticalOptions="Center"/>
+     <androidNative:RaitingSpinner Grid.Column="1" Grid.Row="3" x:Arguments="{x:Static formsandroid:Forms.Context}" ItemsSource="{Binding Raitings}" SelectedObject="{Binding SelectedRaiting, Mode=TwoWay, UpdateSourceEventName=ItemSelected}" />
+   </Grid>
   </ContentPage.Content>
 </ContentPage>

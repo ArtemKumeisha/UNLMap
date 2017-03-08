@@ -36,7 +36,7 @@ namespace UNLMaps.Views
 
             var addedPin = mpVM.MapPins.LastOrDefault();
 
-            AddPinToMap(addedPin.Address, addedPin.Name, addedPin.Description, $"{addedPin.Raiting} ★");
+            AddPinToMap(addedPin.Address, addedPin.Name, addedPin.Description, $"{addedPin.Raiting}");
     
         }
 
@@ -88,7 +88,7 @@ namespace UNLMaps.Views
                     var pos = positions.First();
                     map.MoveToRegion(MapSpan.FromCenterAndRadius(pos, Distance.FromKilometers(2)));
                     map.IsShowingUser = true;
-
+                    
                     if (mpVM.MapPins.Any() && isStart)
                     {
                         var indicator = new IndicatorLayout();
@@ -114,7 +114,7 @@ namespace UNLMaps.Views
                                 Address = mp.Address,
                                 Position = pinPosition,
                                 Icon = BitmapDescriptorFactory.FromView(new BindingPinView("")),
-                                Label = $"{mp.Name}, {mp.Description}, {mp.Raiting}★ "
+                                Label = $"{mp.Name}, {mp.Description}, {mp.Raiting}"
                             };
 
                             map.Pins.Add(pin);

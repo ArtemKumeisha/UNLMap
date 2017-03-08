@@ -18,7 +18,11 @@ namespace UNLMaps.ViewModels
         private string name;
         private string address;
         private string description;
-        private int raiting;
+
+        private string selectedRaiting;
+
+
+        private List<string> raitings;
 
         #region Properties
 
@@ -40,10 +44,16 @@ namespace UNLMaps.ViewModels
             set { SetProperty(ref description, value); }
         }
 
-        public int Raiting
+        public List<string> Raitings
         {
-            get { return raiting; }
-            set { SetProperty(ref raiting, value); }
+            get { return raitings; }
+            set { SetProperty(ref raitings, value); }
+        }
+
+        public string SelectedRaiting
+        {
+            get { return selectedRaiting; }
+            set { SetProperty(ref selectedRaiting, value); }
         }
 
         #endregion
@@ -58,7 +68,12 @@ namespace UNLMaps.ViewModels
         {
             _navigationService = navigationService;
 
-            _realm = Realm.GetInstance("UNLRealm");
+            _realm = Realm.GetInstance("UNLRealms");
+
+            Raitings = new List<string>
+            {
+                "1 ★", "2 ★", "3 ★", "4 ★", "5 ★", "6 ★", "7 ★", "8 ★", "9 ★", "10 ★"
+            };
 
             AddPinCommand = new DelegateCommand(AddPin);
         }
@@ -68,17 +83,12 @@ namespace UNLMaps.ViewModels
         /// </summary>
         private async void AddPin()
         {
-            var n = Name;
-            var a = Address;
-            var d = Description;
-            var r = Raiting;
-
             var newMapPin = new MapPin
             {
                 Address = Address,
                 Name = Name,
                 Description = Description,
-                Raiting = 5
+                Raiting = SelectedRaiting
             };
 
             _realm.Write(()=> _realm.Add(newMapPin));

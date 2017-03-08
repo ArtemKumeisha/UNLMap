@@ -18,6 +18,6 @@ namespace UNLMaps.Models
 
         public string Description { get; set; }
 
-        public int Raiting { get; set; }
+        public string Raiting { get; set; }
     }
 }

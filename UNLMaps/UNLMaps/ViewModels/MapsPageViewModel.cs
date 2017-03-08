@@ -34,20 +34,10 @@ namespace UNLMaps.ViewModels
         {
             _navigationService = navigationService;
            
-            _realm = Realm.GetInstance("UNLRealm");
+            _realm = Realm.GetInstance("UNLRealms");
 
             MapPins = GetAllMapPins();
 
-            // Delete an object with a transaction
-//            using (var trans = _realm.BeginWrite())
-//            {
-//                foreach (var mP in MapPins.ToList())
-//                {
-//                    _realm.Remove(mP);
-//                 
-//                }
-//                trans.Commit();
-//            }
             NavigateToCommand = new DelegateCommand(NavigateTo);
         }
 
